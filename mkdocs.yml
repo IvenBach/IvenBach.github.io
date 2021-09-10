@@ -1,0 +1,13 @@
+site_name: IvenBach's Instructionals
+repo_url: https://github.com/IvenBach/IvenBach.github.io
+site_description: Examples presented in a way my past-self would have wanted to learn from.
+site_author: IvenBach
+
+theme:
+    name: readthedocs
+
+nav:
+    - Home: index.md
+    - git:
+        - Learning to understand git: git/learning_to_understand_git.md
+        - git Branching: git/branching_examples.md
