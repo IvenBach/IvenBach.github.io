@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="IvenBach">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Learning to understand git - IvenBach's Instructionals</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Learning to understand git";
+    var mkdocs_page_input_path = "git\\learning_to_understand_git.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> IvenBach's Instructionals</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">git</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Learning to understand git</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#initializing-the-throwaway-learning-repo">Initializing the throwaway-learning repo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-files">Adding files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#committing-to-the-repo">Committing to the repo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#detecting-differences">Detecting differences</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#restoring-from-the-repo">Restoring from the repo</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../branching_examples/">git Branching</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">IvenBach's Instructionals</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>git &raquo;</li>
+        
+      
+    
+    <li>Learning to understand git</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/IvenBach/IvenBach.github.io/edit/master/docs/git/learning_to_understand_git.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="learning-to-understand-git">Learning to understand git</h1>
+<p>Understanding version control and Git was not easy to learn for me. It took me longer than it should have. Thankfully I was fortunate to have several people willing to help and explain everything to me. The problem was me. I couldn't relate what I was told to anything I already understood. That made it relaly difficult to make progress. I understood the <em>words</em> that were used as part of the explanation but missed the underlying <em>meaning</em>. I was pointed towards <a href="https://git-scm.com/book/en/v2">git documentation</a> and started reading. Again I read the words but missed the meaning. Despite lack of progress and frustration I continued on, this time searching out tutorials.</p>
+<p>One that really helped had a <a href="https://learngitbranching.js.org/">visual component</a>. The breadcrumbing introduction it had along with seeing HEAD move as a commit occured made everything very understandable. After completing the tutorial I created a throwaway repository to test and further my understanding. It was at this point that a lot of what I read previously and read started to make sense.</p>
+<h2 id="initializing-the-throwaway-learning-repo">Initializing the throwaway-learning repo</h2>
+<p>I created a new directory, started Git Bash on that directory, then ran <code>git init</code> to <a href="https://git-scm.com/docs/git-init">initialize</a> or start the repo.<br />
+<img alt="Initializing the repo" src="../Images/learning_to_understand_git/01_Initialized_the_repo.png" title="Create directories via Command Line Interface (CLI) with `mkdir DirectoryName`" /></p>
+<h2 id="adding-files">Adding files</h2>
+<p>Next I added text files manually to the directory. I confirmed that these were seen with <code>git status</code> to <a href="https://git-scm.com/docs/git-status">display the changes made</a>.<br />
+<img alt="Newly created files are seen" src="../Images/learning_to_understand_git/02_Newly_created_files_are_seen.png" title="Creating empty files with `touch FileName.txt` or `echo &quot;File content&quot; > FileName.txt`" /></p>
+<p>Then, as I did previously in the tutorials, I used the <a href="https://git-scm.com/docs/git-add">add command</a> via <code>git add</code> to add the files to the index <code>git add First\ file.txt</code>. <br />
+<strong><em>***Note - Autocompletion:</em></strong> If you type <code>git add Fir|</code> leaving the cursor blinking at <code>|</code> you can autocomplete the file name with Tab.<br />
+<strong><em>***Note - Escape character:</em></strong> The <code>\</code> (backslash) is an escape character for the character that follows it, the <code></code> &nbsp;(space) character. Files with spaces in their names need the spaces to either be escaped in this manner or otherwise enclosed in quotes <code>'</code> (single quote) or <code>"</code> (double quote). The following are also valid:</p>
+<ul>
+<li><code>git add 'First file.txt'</code></li>
+<li><code>git add "First file.txt"</code></li>
+</ul>
+<p><img alt="Adding the first file to the index" src="../Images/learning_to_understand_git/03_Adding_the_first_file_to_the_index.png" /></p>
+<p>Adding files this way places them in the index, a preparation-area. It is a file of interest but isn't yet a part of the repo. Commonly called either staging-area or index, I use them interchangeably. The explicit <code>git add</code> step gives you the control to add only the files you want the repo.</p>
+<p>Add the other files executing <code>git add .</code> where the <code>.</code> (period) indicates you want to add the new files. <a href="https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add/16162511">Relevant StackOverflow question for adding files</a>.<br />
+<img alt="Add remaining files to the index" src="../Images/learning_to_understand_git/04_Add_remaining_files_to_the_index.png" /></p>
+<h2 id="committing-to-the-repo">Committing to the repo</h2>
+<p>Now that the three files are in the staging area, add them to the repo via <a href="https://git-scm.com/docs/git-commit">git commit</a>. Execute <code>git commit -m "Initial commit"</code> where the <code>-m</code> is a flag/indicator that the following string <code>"Initial commit"</code> is the commit-message/descriptive-reason-it-was-added.<br />
+<img alt="Initial files commited to the repo" src="../Images/learning_to_understand_git/05_Initial_files_committed_to_the_repo.png" /></p>
+<h2 id="detecting-differences">Detecting differences</h2>
+<p>¿Ok now what? Time to see at what git can do for you. Delete one of the files. Execute <code>git status</code> and you'll see that it has been deleted. The file committed to the repository so from this point on it is tracked. Any differences in it, even a single character, will be brought to your attention as a change.<br />
+<img alt="Deleted file identified by git" src="../Images/learning_to_understand_git/06_Deleted_file_identified_by_git.png" /></p>
+<h2 id="restoring-from-the-repo">Restoring from the repo</h2>
+<p><strong><em>Suggestion:</em></strong> Before continuing I suggest navigating to the directory you're working in to have it visible. Seeing the next command executed solidified the concept.</p>
+<p>Because the file was committed to the repo you can restore it. Execute <a href="https://git-scm.com/docs/git-restore">git restore</a> with <code>git restore Second\ file.txt</code> to bring the file from the repo back into the directory.</p>
+<p>Now that I saw this in action I continued by creating two new files and editting those already existing.<br />
+<img alt="New and edited files" src="../Images/learning_to_understand_git/07_New_and_edited_files.png" /></p>
+<p>I restored one file with <code>git restore First\ file.txt</code>, and visually inspected it with a text editor confirming the changes weren't there. Executing <code>git status</code> confirmed no changes were detected. It was <code>restore</code>d back to the same state as when it was added to the repo.</p>
+<p>Once again I made edits to First file.txt and saved them. Running <code>git status</code> confirmed they were there. ¿What if I want to restore all the files? I executed <code>git restore .</code> followed by <code>git status</code> to see what changes were left. Naively I was a bit surprised to see files showing.<br />
+<img alt="State after restoring all files" src="../Images/learning_to_understand_git/08_State_after_restoring_all_files.png" /></p>
+<p>¿Why are those files there? They shouldn't be there... Wait. Maybe they should be. :click: that's when another git puzzle piece connected; I understood the different areas of git. "Working Directory" is just that, the directory-where-work-is-done. Mentally changing the text on the middle arrow to "Stage changes=<code>git add</code>" helped.<br />
+<img alt="The git areas image" src="https://git-scm.com/book/en/v2/images/areas.png" /></p>
+<p>Another image, git-lifecycle, from the documentation made sense as well.<br />
+<img alt="Git lifecycle image" src="https://git-scm.com/book/en/v2/images/lifecycle.png" /></p>
+<p>When a new file is first seen it is untracked. I checked back up at the previous commands and the new files were indeed "Untracked files". After <code>git add</code> the files were in the Staged/Staging-Area, designated as "Changes to be committed".</p>
+<p>My question now was ¿how can I remove these files? I already knew I could delete them normally by right clicking and choosing delete, but this small taste of Command Line Interface (CLI) power had me hooked. I wanted more. I eventually found the command I wanted was <a href="https://git-scm.com/docs/git-clean">git clean</a>.</p>
+<p>Since I wanted to remove both the remaining untracked files I executed <code>git clean .</code>. As before I watched the directory while I executed the command. Nothing happened. Confused, I then saw the output "fatal: clean.requireForce...".<br />
+<img alt="" src="../Images/learning_to_understand_git/09_Attempting_to_clean_untracked_files.png" /></p>
+<p>Reading the documentation <code>-i</code> was shorthand for <code>--interactive</code> "Show what would be done and clean files interactively". Going with that I executed <code>git clean -i .</code><br />
+<img alt="" src="../Images/learning_to_understand_git/10_Cleaning_requires_aparameters.png" /></p>
+<p>The documentation for <a href="https://git-scm.com/docs/git-clean#_interactive_mode">interactive mode</a> led me to executing option 1: clean.<br />
+<img alt="" src="../Images/learning_to_understand_git/11_Untracked_files_cleaned_away.png" /></p>
+<p>I forgot to watch the directory to see that they were removed but that didn't matter. At this point I knew I was on my way to learning to understand git.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../branching_examples/" class="btn btn-neutral float-right" title="git Branching">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/IvenBach/IvenBach.github.io/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../branching_examples/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

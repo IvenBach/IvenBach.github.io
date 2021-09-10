@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="IvenBach">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>git Branching - IvenBach's Instructionals</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "git Branching";
+    var mkdocs_page_input_path = "git\\branching_examples.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> IvenBach's Instructionals</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">git</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../learning_to_understand_git/">Learning to understand git</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">git Branching</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-a-development-branch-and-commit-to-it">Create a development branch and commit to it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-another-development-branch-and-commit-some-more">Creating another development branch and commit some more</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#branches-keep-work-separate">Branches keep work separate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#merging-branches-together">Merging branches together</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#finding-merged-branches">Finding merged branches</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deleting-branches">Deleting branches</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">IvenBach's Instructionals</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>git &raquo;</li>
+        
+      
+    
+    <li>git Branching</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/IvenBach/IvenBach.github.io/edit/master/docs/git/branching_examples.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="branches-and-why-they-matter">Branches and why they matter</h1>
+<p>Start by executing the following commands to create a directory, navigate into the directory, and initialize the repository.</p>
+<pre><code>mkdir Branching\ example
+cd Branching\ example/
+git init
+</code></pre>
+<p><strong><em>Helpful hint:</em></strong> If seeing things as they occur helps you open a file explorer to the current directory so it is visible while you execute the commands that follow.</p>
+<p>With the repository created we need content to commit. Execute the commands below. They create a text file with the output of the echo command redirected and saved to a text file, <a href="https://git-scm.com/docs/git-add">add</a> any and all files to staging-area, then <a href="https://git-scm.com/docs/git-commit">commit</a> all staged files with a commit message. </p>
+<pre><code>echo &quot;Text to start&quot; &gt; RandomFileName.txt
+git add .
+git commit -m &quot;Initial commit&quot;
+</code></pre>
+<p>The repository right now has a single commit.<br />
+<img alt="Initial_commit_graph" src="../Images/branching_examples/01_Initial_commit_graph.png" /></p>
+<h2 id="create-a-development-branch-and-commit-to-it">Create a development branch and commit to it</h2>
+<p>The first command <a href="https://git-scm.com/docs/git-switch">git switch</a> includes the <a href="https://git-scm.com/docs/git-switch#Documentation/git-switch.txt--cltnew-branchgt">-c \&lt;new-branch></a> option to create a new branch with the given name using the currently checked out <code>master</code> branch as the starting point. As before files will be created, added, then committed.</p>
+<pre><code>git switch -c InitialBranch
+
+echo &quot;Apples are tasty&quot; &gt; Apples.txt 
+echo &quot;Bread is a staple food for me&quot; &gt; Bread.txt 
+echo &quot;Croutons go on salads&quot; &gt; Croutons.txt 
+echo &quot;Danishes are deserts&quot; &gt; Danishes.txt 
+echo &quot;Eggs come from chickens&quot; &gt; Eggs.txt 
+echo &quot;Frech toast combines eggs with bread&quot; &gt; FrenchToast.txt 
+echo &quot;Grapes, purple ones especially, always make me think of Grimace&quot; &gt; Grapes.txt 
+
+git add Apples.txt 
+git commit -m &quot;Add apples file&quot; 
+git add Bread.txt Croutons.txt 
+git commit -m &quot;Add bread and croutons file&quot; 
+git add . 
+git commit -m &quot;Add files: danish, egg, french toast, grapes&quot; 
+</code></pre>
+<p>We now have a branch that contains the changes we just made. The graph shows the most recent commits first stepping backwards in history to the first commit.<br />
+<img alt="InitialBranch graph" src="../Images/branching_examples/02_InitialBranch_graph.png" /></p>
+<p>Change back to the master branch with <code>git switch master</code> to see the only file existing at that commit is RandomFileName.txt. Changing to another branch helps keep you from crossing the streams and maintain separate workflows.</p>
+<h2 id="creating-another-development-branch-and-commit-some-more">Creating another development branch and commit some more</h2>
+<p>Once again we create another branch, create files, and commit them.</p>
+<pre><code>git switch -c SecondaryBranch
+
+echo &quot;Z has no foods I can think of&quot; &gt; Z.txt
+echo &quot;Yogurt has bacteria&quot; &gt; Yogurt.txt
+echo &quot;X doesn't have any foods either&quot; &gt; X.txt
+echo &quot;Watermellon is a summer time treat&quot; &gt; Watermellon.txt
+echo &quot;Vanilla is one of my favorite flavors. True connoiseurs prefer it over chocolate.&quot; &gt; Vanilla.txt
+echo &quot;Ube is an ingredient in halo-halo, a yummy Fillipino desert&quot; &gt; Ube.txt
+echo &quot;Tapioca is something I haven't had since I was a child&quot; &gt; Tapioca.txt
+echo &quot;Sugar rots your teeth like reality TV rots your brain&quot; &gt; Sugar.txt
+echo &quot;Ranch dressing is inferior to Bleu cheese&quot; &gt; RanchDressing.txt
+echo &quot;Quesadillas are a starving college student staple&quot; &gt; Quesadilla.txt
+echo &quot;Papaya is a nasty tasting fruit&quot; &gt; Papaya.txt
+echo &quot;Oatmeal is another starving college student staple&quot; &gt; Oatmeal.txt
+echo &quot;Nutella should be outlawed because it is an abomination&quot; &gt; Nutella.txt
+echo &quot;Menudo fills you up and sticks with you&quot; &gt; Menudo.txt
+echo &quot;Lemons make menudo taste even better&quot; &gt; Lemon.txt
+echo &quot;Kiwi's are the only K food that come to mind&quot; &gt; Kiwi.txt
+echo &quot;Jello reminds me of old people in hospitals&quot; &gt; Jello.txt
+echo &quot;Ice cream should be eaten sparingly&quot; &gt; IceCream.txt
+echo &quot;Halo-halo is a desert I've come to like&quot; &gt; HaloHalo.txt
+
+git add Z.txt X.txt
+git commit -m &quot;Add no food files&quot;
+git add Oatmeal.txt Quesadilla.txt
+git commit -m &quot;Add starving college student files&quot;
+git add Menudo.txt Lemon.txt
+git commit -m &quot;Add sopas food files&quot;
+git add HaloHalo.txt IceCream.txt Ube.txt
+git commit -m &quot;Add Fillipino desert files&quot;
+git add Nutella.txt Papaya.txt RanchDressing.txt
+git commit -m &quot;Undesirable food files&quot;
+git add .
+git commit -m &quot;Add remaining food files&quot;
+</code></pre>
+<p>Based on the above commits the development graph is as shown below.<br />
+<img alt="SecondaryBranch graph" src="../Images/branching_examples/03_SecondaryBranch_graph.png" /></p>
+<p>Execute the <a href="https://git-scm.com/docs/git-branch">branch command</a> <code>git branch</code> to list the 3 branches. The currently checked out branch is indicated by with an <code>*</code> (asterisk). Switch to each of the branches with <code>git switch &lt;BranchName&gt;</code> and review how the files change in the directory.</p>
+<h2 id="branches-keep-work-separate">Branches keep work separate</h2>
+<p>After creating the branches above and checking them out it should be more evident that branches help isolate development work flows. Because creating a branch is so easy it helps to create one any time you're working on a new feature.</p>
+<h2 id="merging-branches-together">Merging branches together</h2>
+<p>Currently there are two development branches, <code>InitialBranch</code> and <code>SecondaryBranch</code>, containing the various food files. Make another branch with <code>git switch -c MergingInto master</code> in preparation to merging them.</p>
+<p>The command to bring branches together is <a href="https://git-scm.com/docs/git-merge">git merge</a>. When performing the merge we'll use the <code>--no-ff</code> to prevent a <a href="https://git-scm.com/docs/git-merge#_fast_forward_merge">fast-forward merge</a> from occurring so the merge displays in the graph.</p>
+<p>Execute <code>git merge InitialBranch --no-ff</code> which brings all the commits from <code>InitialBranch</code> into the branch we just created and have checked out. You see this when executing the <a href="https://git-scm.com/docs/git-log">git log</a> command including the <code>--graph</code> and <code>--oneline</code> options: <code>git log --graph --oneline</code>.<br />
+<img alt="Graph after merging InitialBranch" src="../Images/branching_examples/05_Graph_after_merging_InitialBranch.png" /></p>
+<p>Merge the other branch in with <code>git merge SecondaryBranch --no-ff</code>. Below you see where each branch is explicitly merged with the merge commit.<br />
+<img alt="Graph after merging SecondaryBranch" src="../Images/branching_examples/06_Graph_after_merging_SecondaryBranch.png" /></p>
+<h2 id="finding-merged-branches">Finding merged branches</h2>
+<p>As branches get merged into the primary development branch you can check for these merged branches by including the <a href="https://git-scm.com/docs/git-branch#Documentation/git-branch.txt---mergedltcommitgt">--merged</a> flag when executing <code>git merge --merged</code>. The corresponding flag for branches not merged is <a href="https://git-scm.com/docs/git-branch#Documentation/git-branch.txt---no-mergedltcommitgt">--no-merged</a> <code>git merge --no-merged</code>.</p>
+<p>To help make the point create another branch based on <code>master</code>, create a file and commit it.</p>
+<pre><code>git switch -c TertiaryBranch master`
+touch 1234.txt
+git add .
+git commit -m &quot;Add number file&quot;
+</code></pre>
+<p>For each branch switch to it and run <code>git branch --merged</code> and <code>git branch --no-merged</code> to see the merged and unmerged branches.</p>
+<h2 id="deleting-branches">Deleting branches</h2>
+<p>When a branch is merged into a main branch it can be deleted. Switch to the master branch then merge unmerged development branches.</p>
+<pre><code>git switch master
+git merge TertiaryBranch
+git merge MergingInto
+</code></pre>
+<p>Execute <code>git branch --no-merged</code> to confirm there are no unmerged branches, you should see no output. Remove the development branches with <code>git branch -d InitialBranch MergingInto SecondaryBranch TertiaryBranch</code> to leave only master.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../learning_to_understand_git/" class="btn btn-neutral" title="Learning to understand git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/IvenBach/IvenBach.github.io/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../learning_to_understand_git/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
